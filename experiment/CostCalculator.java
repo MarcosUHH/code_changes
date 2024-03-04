@@ -13,8 +13,14 @@ public class CostCalculator {
      * @return the discount rate applied to the customer
      */
     public double getSaleDiscountRate(int membershipLevel){
-        //TODO
-        return 0;
+        double discountRate = 0;
+        if(membershipLevel > 2 && membershipLevel < 5) {
+            discountRate = 0.1;
+        }
+        if(membershipLevel >= 5) {
+            discountRate = 0.25;
+        }
+        return discountRate;
     }
 
     /**
@@ -26,7 +32,14 @@ public class CostCalculator {
      * @return the total cost of the items
      */
     public double computeTotalCost(List<Item> items, int membershipLevel, double shippingCosts) {
-        //TODO
-        return 0;
+        double totalPrice = shippingCosts;
+        for (Item item : items) {
+            if (item.isOnSale()) {
+                totalPrice += item.getPrice() * (1 - getSaleDiscountRate(membershipLevel));
+            } else {
+                totalPrice += item.getPrice();
+            }
+        }
+        return totalPrice;
     }
 }
