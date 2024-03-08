@@ -34,12 +34,6 @@ public class Item {
      * for each day passed.
      */
     public void updateExpirationDiscount(){
-        LocalDate today = LocalDate.now();
-        Period periodUntilExpiration = Period.between(today, expirationDate);
-        int daysUntilExpiration = periodUntilExpiration.getDays();
-        if(daysUntilExpiration < 7) {
-            double discount = (7 - daysUntilExpiration) * 0.05;
-            price = price * (1 - discount);
-        }
+        //TODO
     }
 }

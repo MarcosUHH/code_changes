@@ -13,31 +13,7 @@ public class ShippingManager {
      * @return the total shipping costs
      */
     public double computeShippingCosts(double totalWeight, OnlineCustomer.Address destinationAddress){
-        double shippingCost = 0;
-        if(totalWeight <= 5) {
-            shippingCost = 7;
-        }
-        if(totalWeight > 5 && totalWeight <= 18) {
-            shippingCost = 10;
-        }
-        if(totalWeight > 18) {
-            shippingCost = 20;
-        }
-        switch (destinationAddress.getCountry()) {
-            case "USA":
-                shippingCost = shippingCost * 1.2;
-                break;
-            case "Canada":
-                shippingCost = shippingCost * 1.18;
-                break;
-            case "Mexico":
-                shippingCost = shippingCost * 1.35;
-                break;
-            case "UK":
-                shippingCost = shippingCost * 1.27;
-            default:
-                shippingCost = shippingCost * 2;
-        }
-        return shippingCost;
+        //TODO
+        return 0;
     }
 }
